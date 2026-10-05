@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quick e-Shop | Fresh Finds, Best Prices</title>
+  <meta name="description" content="The Local Shop - Fresh Finds, Best Prices. Order online and get it delivered.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Sticky header -->
+  <header class="header">
+    <div class="header__brand">
+      <h1 class="header__name">Quick e-Shop</h1>
+      <p class="header__tag">Fresh Finds, Best Prices</p>
+    </div>
+    <button class="cart-btn" id="openCart" aria-label="Open cart">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.7 12.4a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.5L21 7H6"/></svg>
+      <span>Cart</span>
+      <span class="badge" id="cartCount">0</span>
+    </button>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <img class="hero__img" src="image/hero_banner.avif" alt="The Local Shop storefront and products">
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <h2>Fresh finds,<br>best prices.</h2>
+      <p>Hand-picked from your neighbourhood shop and delivered to your door. Pick what you like, we'll pack it.</p>
+      <button class="btn btn--accent" id="shopNow">Shop now</button>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <main class="products" id="products">
+    <div class="products__head">
+      <h2>Today's picks</h2>
+      <p>Choose a quantity and add to your cart.</p>
+    </div>
+    <div class="grid" id="productGrid"></div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; <span id="year"></span> The Local Shop &middot; thelocalshop@gmail.com</p>
+  </footer>
+
+  <!-- Cart slide-over -->
+  <div class="overlay" id="overlay"></div>
+  <aside class="drawer" id="drawer" aria-hidden="true" aria-label="Your cart">
+    <div class="drawer__head">
+      <h2>Your cart</h2>
+      <button class="icon-btn" id="closeCart" aria-label="Close cart">&times;</button>
+    </div>
+
+    <div class="drawer__body">
+      <ul class="cart-list" id="cartList"></ul>
+
+      <div class="totals" id="totals">
+        <div><span>Subtotal</span><span id="subtotal">₹0</span></div>
+        <div><span>Delivery</span><span>Free</span></div>
+        <div class="totals__grand"><span>Total</span><span id="total">₹0</span></div>
+      </div>
+
+      <form class="checkout" id="checkoutForm" novalidate>
+        <h3>Delivery details</h3>
+        <label>Full name
+          <input type="text" id="custName" name="name" autocomplete="name" required>
+        </label>
+        <label>Mobile number
+          <input type="tel" id="custPhone" name="phone" autocomplete="tel" inputmode="numeric" placeholder="10-digit number" required>
+        </label>
+        <label>Full delivery address
+          <textarea id="custAddress" name="address" rows="3" autocomplete="street-address" required></textarea>
+        </label>
+        <p class="form-msg" id="formMsg" role="status"></p>
+        <button type="submit" class="btn btn--primary" id="placeOrder">Place order</button>
+      </form>
+    </div>
+  </aside>
+
+  <!-- Floating WhatsApp -->
+  <a class="whatsapp" href="https://wa.me/9999999999" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.4A10 10 0 1 0 12 2Zm5.800 14.200c-.2.7-1.400 1.300-1.900 1.300-.5.100-1.100.1-1.800-.1-.4-.1-1-.3-1.700-.6-3-1.300-5-4.300-5.100-4.500-.1-.2-1.200-1.600-1.200-3s.8-2.100 1-2.400c.3-.3.600-.3.800-.3h.6c.2 0 .4 0 .6.500l.8 2c.1.200.1.400 0 .5l-.4.600c-.1.200-.3.300-.1.600.2.300.8 1.300 1.700 2.100 1.100 1 2.100 1.300 2.400 1.500.3.100.4.100.6-.1l.8-1c.2-.3.400-.2.600-.1l1.900.9c.3.100.5.200.5.300.1.200.1.800-.1 1.500Z"/></svg>
+  </a>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
